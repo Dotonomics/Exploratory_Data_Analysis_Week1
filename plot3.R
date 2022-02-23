@@ -18,7 +18,7 @@ datetime <- paste(as.Date(data_trim$Date), data_trim$Time)
 data_trim$Datetime <- as.POSIXct(datetime)
 
 #Plot 3
-with(data1, {
+with(data_trim, {
   plot(Sub_metering_1~Datetime, type="l",
        ylab="Global Active Power (kilowatts)", xlab="")
   lines(Sub_metering_2~Datetime,col='Red')
@@ -29,3 +29,4 @@ legend("topright", col=c("black", "red", "blue"), lty=1, lwd=2,
 
 #Print in png format
 dev.copy(png, file="plot3.png", height=480, width=480)
+dev.off()
